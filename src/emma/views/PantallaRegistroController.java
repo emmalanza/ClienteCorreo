@@ -31,7 +31,7 @@ public class PantallaRegistroController extends BaseController implements Initia
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        tf_email.setText("pruebapruebadi@gmail.com"); pf_password.setText("PruebaDi2019");
+       //tf_email.setText("pruebapruebadi@gmail.com"); pf_password.setText("PruebaDi2019");
 
         ValidationSupport validationSupport = new ValidationSupport();
         validationSupport.registerValidator(tf_email, Validator.createEmptyValidator("Este campo no puede estar vacío"));

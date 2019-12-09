@@ -44,7 +44,7 @@ public class PantallaConfigController extends BaseController implements Initiali
 
             if((alert.getResult() == ButtonType.OK)){
                 logica.borrarCuentas(lv_correos.getSelectionModel().getSelectedItem());
-                //hacer que desaparez el email de la lista!
+                //hacer que desaparezca el email de la lista!
                 alert.setContentText("Cuenta correctamente.");
                 alert.show();
                 }else{

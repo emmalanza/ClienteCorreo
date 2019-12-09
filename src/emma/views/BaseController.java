@@ -28,8 +28,8 @@ import java.io.IOException;
          * @param fxml fxml que quiero cargar.
          * @param anchura anchura del diáloggo.
          * @param altura altura del diálogo.
-         * @return controller de la pantalla que estamos abriendo,
-         * hay que llamar al método abrirDialogo para mostrarlo finalmente.
+         * @return controller de la pantalla que estamos abriendo.
+         * Hay que llamar al método abrirDialogo para mostrarlo finalmente.
          **/
         protected BaseController cargarDialogo(String fxml, int anchura, int altura)
         {

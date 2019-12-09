@@ -5,6 +5,7 @@ import emma.logic.services.ObtenerCarpetasService;
 import emma.logic.services.ObtenerCorreosService;
 import emma.models.EmailTreeItem;
 import emma.models.Mensaje;
+import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.WorkerStateEvent;
@@ -24,6 +25,9 @@ public class PantallaPrincipalController extends BaseController implements Initi
 
     @FXML
     private TreeView treev_carpetas;
+
+    @FXML
+    private Button bt_responder;
 
     @FXML
     private TableView<Mensaje> tv_mensajes;
@@ -81,7 +85,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
             }
         });
 
-        //poner en negrita mensajes no leídos
+        //poner en negrita mensajes no leídos que por cierto no funciona
         tv_mensajes.setRowFactory(new Callback<TableView<Mensaje>, TableRow<Mensaje>>() {
             @Override
             public TableRow<Mensaje> call(TableView<Mensaje> tvMensaje) {
@@ -184,8 +188,15 @@ public class PantallaPrincipalController extends BaseController implements Initi
         correo_controller.abrirDialogo(true);
     }
 
-    public void mover_email (ActionEvent actionEvent){
+    public void tema_claro(ActionEvent event){ Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA); }
+    public void tema_oscuro(ActionEvent event){
+        Application.setUserAgentStylesheet(Application.STYLESHEET_CASPIAN);
+        bt_responder.setStyle("-fx-text-fill: white"); //probando
 
+    }
+
+    public void mover_email (ActionEvent actionEvent){
+        //pendiente
         }
 
     }

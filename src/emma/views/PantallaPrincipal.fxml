@@ -26,6 +26,12 @@
               <MenuItem mnemonicParsing="false" onAction="#borrar_cuenta" text="Borrar cuentas" />
             </items>
           </Menu>
+            <Menu fx:id="mn_tema" mnemonicParsing="false" text="Cambiar tema">
+              <items>
+                <MenuItem fx:id="item_claro" mnemonicParsing="false" onAction="#tema_claro" text="Tema claro" />
+                  <MenuItem fx:id="item_oscuro" mnemonicParsing="false" onAction="#tema_oscuro" text="Tema oscuro" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
       <SplitPane dividerPositions="0.2702702702702703" layoutY="31.0" prefHeight="669.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">

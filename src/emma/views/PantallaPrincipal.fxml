@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="emma.views.PantallaPrincipalController">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="33.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu fx:id="menu_cuentas" mnemonicParsing="false" text="Cuentas...">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#nueva_cuenta" text="Añadir cuenta" />
+              <MenuItem mnemonicParsing="false" onAction="#borrar_cuenta" text="Borrar cuentas" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.2702702702702703" layoutY="31.0" prefHeight="669.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="30.0">
+               <children>
+                  <TreeView fx:id="treev_carpetas" layoutX="-1.0" prefHeight="673.0" prefWidth="185.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="604.0" prefWidth="497.0">
+               <children>
+                  <ToolBar layoutX="-1.0" layoutY="-4.0" prefHeight="47.0" prefWidth="505.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <items>
+                        <Button fx:id="bt_redactar" mnemonicParsing="false" onAction="#redactar_email" prefHeight="33.0" prefWidth="66.0" text="Redactar">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="bt_responder" mnemonicParsing="false" onAction="#responder_email" prefHeight="33.0" prefWidth="66.0" text="Responder">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="bt_reenviar" mnemonicParsing="false" onAction="#reenviar_email" prefHeight="33.0" prefWidth="66.0" text="Reenviar">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="bt_borrar" mnemonicParsing="false" onAction="#borrar_email" prefHeight="33.0" prefWidth="66.0" text="Borrar">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="bt_mover" mnemonicParsing="false" prefHeight="33.0" prefWidth="66.0" text="Mover">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </items>
+                     <padding>
+                        <Insets left="80.0" right="20.0" />
+                     </padding>
+                  </ToolBar>
+                  <TableView fx:id="tv_mensajes" layoutX="-4.0" layoutY="47.0" prefHeight="171.0" prefWidth="506.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <columns>
+                     <TableColumn fx:id="fromcolumn" prefWidth="131.0" text="De">
+                        <cellValueFactory>
+                           <PropertyValueFactory property="from" />
+                        </cellValueFactory>
+                     </TableColumn>
+                        <TableColumn fx:id="subjectcolumn" prefWidth="248.0" text="Asunto">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="subject" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="datecolumn" prefWidth="126.0" text="Fecha">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="ReceivedDate" />
+                           </cellValueFactory>
+                        </TableColumn>
+                     </columns>
+                  </TableView>
+                  <WebView fx:id="wv_html" layoutX="-6.0" layoutY="314.0" prefHeight="449.0" prefWidth="506.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0" />
+                  <Separator layoutY="220.0" prefHeight="7.0" prefWidth="505.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

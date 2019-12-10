@@ -188,11 +188,13 @@ public class PantallaPrincipalController extends BaseController implements Initi
         correo_controller.abrirDialogo(true);
     }
 
-    public void tema_claro(ActionEvent event){ Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA); }
+    public void tema_claro(ActionEvent event){
+        Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
+        bt_responder.setStyle("-fx-text-fill: black"); //probando
+    }
     public void tema_oscuro(ActionEvent event){
         Application.setUserAgentStylesheet(Application.STYLESHEET_CASPIAN);
         bt_responder.setStyle("-fx-text-fill: white"); //probando
-
     }
 
     public void mover_email (ActionEvent actionEvent){

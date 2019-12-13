@@ -197,8 +197,13 @@ public class PantallaPrincipalController extends BaseController implements Initi
         bt_responder.setStyle("-fx-text-fill: white"); //probando
     }
 
-    public void mover_email (ActionEvent actionEvent){
-        //pendiente
+    public void combo (ActionEvent actionEvent){
+
+        PantallaComboController combo_controller =
+                (PantallaComboController) cargarDialogo("PantallaCombo.fxml", 600, 200);
+        combo_controller.getStage().setResizable(false);
+        combo_controller.abrirDialogo(true);
+
         }
 
     }

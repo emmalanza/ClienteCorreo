@@ -65,7 +65,7 @@
                               <Font size="10.0" />
                            </font>
                         </Button>
-                        <Button fx:id="bt_mover" mnemonicParsing="false" prefHeight="33.0" prefWidth="66.0" text="Mover">
+                        <Button fx:id="bt_combo" mnemonicParsing="false" prefHeight="33.0" prefWidth="66.0" text="Combo" onAction="#combo">
                            <font>
                               <Font size="10.0" />
                            </font>

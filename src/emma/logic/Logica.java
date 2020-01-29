@@ -1,5 +1,6 @@
 package emma.logic;
 
+import com.emma.Tarea;
 import com.sun.mail.util.MailConnectException;
 import emma.models.Cuenta;
 import emma.models.EmailTreeItem;
@@ -7,8 +8,10 @@ import emma.models.Mensaje;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.web.HTMLEditor;
+
 import javax.mail.*;
-import javax.mail.internet.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class Logica {
@@ -24,6 +27,13 @@ public class Logica {
     }
 
     private ObservableList<Cuenta> cuentas = FXCollections.observableArrayList();
+    private ObservableList<Tarea> tareas = FXCollections.observableArrayList();
+
+    public void anadir_tareas(Tarea t) {tareas.add(t);}
+
+    public void eliminar_tareas(Tarea t){tareas.remove(t);}
+
+    public ObservableList<Tarea> getTareas() {return tareas;}
 
     public void anadir_cuentas(Cuenta c) {cuentas.add(c);}
 

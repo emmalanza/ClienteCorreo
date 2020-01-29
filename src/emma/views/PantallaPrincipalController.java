@@ -1,5 +1,8 @@
 package emma.views;
 
+import com.emma.Evento;
+import com.emma.Reloj;
+import com.emma.Tarea;
 import emma.logic.Logica;
 import emma.logic.services.ObtenerCarpetasService;
 import emma.logic.services.ObtenerCorreosService;
@@ -17,6 +20,7 @@ import javafx.scene.control.*;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
+
 import javax.mail.MessagingException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,8 +39,12 @@ public class PantallaPrincipalController extends BaseController implements Initi
     @FXML
     private WebView wv_html;
 
+    @FXML
+    private Reloj reloj;
+
     private WebEngine webEn;
     private Logica logica = Logica.getInstance();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -45,6 +53,21 @@ public class PantallaPrincipalController extends BaseController implements Initi
                 (PantallaRegistroController) cargarDialogo("PantallaRegistro.fxml", 600, 400);
         registro_controller.getStage().setResizable(false);
         registro_controller.abrirDialogo(true);
+
+        reloj.start();
+        reloj.addEvento(new Evento() {
+            @Override
+            public void ejecuta(Tarea tarea) {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("AVISO");
+                String hora = tarea.getHoras() + ": " + tarea.getMinutos() + ": " + tarea.getSegundos();
+                alert.setHeaderText(hora);
+                alert.setContentText(tarea.getDescripcion());
+                alert.show();
+
+            }
+        });
 
         ObtenerCarpetasService obtenerCarpetasService = new ObtenerCarpetasService();
         obtenerCarpetasService.start();
@@ -206,7 +229,19 @@ public class PantallaPrincipalController extends BaseController implements Initi
 
         }
 
+    public void config_tareas(ActionEvent actionEvent) {
+
+        PantallaTareasController tareas_controller =
+                (PantallaTareasController) cargarDialogo("PantallaTareas.fxml", 600,400);
+        tareas_controller.getStage().setResizable(false);
+        tareas_controller.abrirDialogo(true);
+
+        for(int i = 0; i<logica.getTareas().size(); i++){
+            reloj.registraTarea(logica.getTareas().get(i));
+        }
+
     }
+}
 
 
 

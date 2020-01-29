@@ -8,6 +8,7 @@ module ClienteCorreo {
     requires java.base;
     requires org.controlsfx.controls;
     requires commons.email;
+    requires ComponenteReloj;
 
     exports emma.logic;
     exports emma.models;

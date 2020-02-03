@@ -61,7 +61,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("AVISO");
-                String hora = tarea.getHoras() + ": " + tarea.getMinutos() + ": " + tarea.getSegundos();
+                String hora = tarea.getSfecha();
                 alert.setHeaderText(hora);
                 alert.setContentText(tarea.getDescripcion());
                 alert.show();

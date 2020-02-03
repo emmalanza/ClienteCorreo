@@ -6,10 +6,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class PantallaTareasController extends BaseController implements Initializable {
@@ -31,6 +35,9 @@ public class PantallaTareasController extends BaseController implements Initiali
     private TextField tf_s;
 
     @FXML
+    private DatePicker dp_fecha;
+
+    @FXML
     private Button bt_anadir;
 
     @FXML
@@ -47,12 +54,14 @@ public class PantallaTareasController extends BaseController implements Initiali
 
     public void aniadir_tarea(ActionEvent actionEvent) {
 
-        int h,m,s;
+        int h,m,s; Date fecha; LocalDate localDate;
         h = Integer.parseInt(tf_h.getText());
         m = Integer.parseInt(tf_m.getText());
         s = Integer.parseInt(tf_s.getText());
+        localDate = dp_fecha.getValue();
+        fecha = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
-        Tarea t = new Tarea(h,m,s, tf_desc.getText());
+        Tarea t = new Tarea(fecha,h,m,s, tf_desc.getText());
         logica.anadir_tareas(t);
 
         tv_tareas.setItems(logica.getTareas());

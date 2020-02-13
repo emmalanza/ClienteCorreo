@@ -18,7 +18,6 @@ import java.util.ResourceBundle;
 
 public class PantallaTareasController extends BaseController implements Initializable {
 
-
     @FXML
     private TableView<Tarea> tv_tareas;
 
@@ -44,6 +43,7 @@ public class PantallaTareasController extends BaseController implements Initiali
     private Button bt_eliminar;
 
     private Logica logica = Logica.getInstance();
+    private PantallaPrincipalController control_reloj = new PantallaPrincipalController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -63,6 +63,7 @@ public class PantallaTareasController extends BaseController implements Initiali
 
         Tarea t = new Tarea(fecha,h,m,s, tf_desc.getText());
         logica.anadir_tareas(t);
+        control_reloj.getReloj().registraTarea(t);
 
         tv_tareas.setItems(logica.getTareas());
 
@@ -76,7 +77,7 @@ public class PantallaTareasController extends BaseController implements Initiali
     public void eliminar_tarea(ActionEvent actionEvent) {
 
         logica.eliminar_tareas(tv_tareas.getSelectionModel().getSelectedItem());
-
+        control_reloj.getReloj().borraTarea(tv_tareas.getSelectionModel().getSelectedItem());
         tv_tareas.setItems(logica.getTareas());
 
     }

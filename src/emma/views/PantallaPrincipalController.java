@@ -241,6 +241,11 @@ public class PantallaPrincipalController extends BaseController implements Initi
         }
 
     }
+
+    public Reloj getReloj(){
+        return reloj;
+    }
+
 }
 
 

@@ -12,6 +12,8 @@ import javafx.scene.web.HTMLEditor;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 public class Logica {
@@ -209,6 +211,13 @@ public class Logica {
             return false;
         }
 
+    }
+
+    public List<Mensaje> get_mensaje_informe(Mensaje m){
+
+        List<Mensaje> mensajeList = new ArrayList<>();
+        mensajeList.add(m);
+        return mensajeList;
     }
 
 }

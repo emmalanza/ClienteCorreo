@@ -9,6 +9,7 @@ module ClienteCorreo {
     requires org.controlsfx.controls;
     requires commons.email;
     requires ComponenteReloj;
+    requires jasperreports;
 
     exports emma.logic;
     exports emma.models;

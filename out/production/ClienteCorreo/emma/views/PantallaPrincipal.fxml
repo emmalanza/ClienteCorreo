@@ -35,7 +35,7 @@
             </Menu>
             <Menu fx:id="mn_tareas" mnemonicParsing="false" text="Tareas...">
               <items>
-                <MenuItem fx:id="item_configurar" mnemonicParsing="false" text="Configurar" onAction="#config_tareas" />
+                <MenuItem fx:id="item_configurar" mnemonicParsing="false" onAction="#config_tareas" text="Configurar" />
               </items>
             </Menu>
         </menus>
@@ -76,6 +76,7 @@
                               <Font size="10.0" />
                            </font>
                         </Button>
+                        <Button fx:id="bt_imprimir" mnemonicParsing="false" onAction="#imprimir_email" prefHeight="33.0" prefWidth="66.0" text="Imprimir" />
                      </items>
                      <padding>
                         <Insets left="80.0" right="20.0" />

@@ -20,9 +20,16 @@ import javafx.scene.control.*;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import javax.mail.MessagingException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class PantallaPrincipalController extends BaseController implements Initializable {
@@ -246,6 +253,30 @@ public class PantallaPrincipalController extends BaseController implements Initi
         return reloj;
     }
 
+    public void imprimir_email(ActionEvent actionEvent) {
+
+        Mensaje m = tv_mensajes.getSelectionModel().getSelectedItem();
+
+        if (m!=null)
+        {
+            Alert alert_null = new Alert(Alert.AlertType.WARNING);
+            alert_null.setTitle("ERROR");
+            alert_null.setContentText("No hay mensajes seleccionados");
+            alert_null.showAndWait();
+
+        }else{
+            JRBeanCollectionDataSource jr = new JRBeanCollectionDataSource(logica.get_mensaje_informe(m));
+            Map<String,Object> parametros = new HashMap<>();
+            JasperPrint print = null;
+            try {
+                print = JasperFillManager.fillReport(getClass().getResourceAsStream("/emma/informesjasper/InformeMensaje.jasper"), parametros, jr);
+                JasperExportManager.exportReportToPdfFile(print, "informespdf/primerinforme.pdf");
+            } catch (JRException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
 }
 
 

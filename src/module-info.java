@@ -10,6 +10,7 @@ module ClienteCorreo {
     requires commons.email;
     requires ComponenteReloj;
     requires jasperreports;
+    requires java.sql;
 
     exports emma.logic;
     exports emma.models;

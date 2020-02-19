@@ -257,7 +257,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
 
         Mensaje m = tv_mensajes.getSelectionModel().getSelectedItem();
 
-        if (m!=null)
+        if (m==null)
         {
             Alert alert_null = new Alert(Alert.AlertType.WARNING);
             alert_null.setTitle("ERROR");

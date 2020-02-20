@@ -269,7 +269,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
             Map<String,Object> parametros = new HashMap<>();
             JasperPrint print = null;
             try {
-                print = JasperFillManager.fillReport(getClass().getResourceAsStream("/emma/informesjasper/InformeMensaje.jasper"), parametros, jr);
+                print = JasperFillManager.fillReport(getClass().getResourceAsStream("/emma/informesjasper/InformeCorreo.jasper"), parametros, jr);
                 JasperExportManager.exportReportToPdfFile(print, "informespdf/primerinforme.pdf");
             } catch (JRException e) {
                 e.printStackTrace();

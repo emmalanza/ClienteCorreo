@@ -11,6 +11,7 @@ module ClienteCorreo {
     requires ComponenteReloj;
     requires jasperreports;
     requires java.sql;
+    requires org.jsoup;
 
     exports emma.logic;
     exports emma.models;

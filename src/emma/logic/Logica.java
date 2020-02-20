@@ -5,9 +5,11 @@ import com.sun.mail.util.MailConnectException;
 import emma.models.Cuenta;
 import emma.models.EmailTreeItem;
 import emma.models.Mensaje;
+import emma.models.MensajeInforme;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.web.HTMLEditor;
+import org.jsoup.Jsoup;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -213,10 +215,24 @@ public class Logica {
 
     }
 
-    public List<Mensaje> get_mensaje_informe(Mensaje m){
+    public List<MensajeInforme> get_mensaje_informe(Mensaje m){
 
-        List<Mensaje> mensajeList = new ArrayList<>();
-        mensajeList.add(m);
+        List<MensajeInforme> mensajeList = new ArrayList<>();
+        String plainText = null;
+
+        try {
+            plainText = Jsoup.parse(m.getContent()).text();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            mensajeList.add(new MensajeInforme(m.getFrom(),m.getTo(), m.getSubject(), m.getReceivedDate(), plainText));
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return mensajeList;
     }
 

@@ -117,7 +117,7 @@ public class Logica {
         return mensajes;
     }
 
-    public EmailTreeItem cargaCarpetas() {
+    public EmailTreeItem cargarCarpetas() {
 
         EmailTreeItem rootItem = new EmailTreeItem("",null,null, null);
 
@@ -221,13 +221,17 @@ public class Logica {
         String plainText = null;
 
         try {
-            plainText = Jsoup.parse(m.getContent()).text();
+            if(m.getContent()!=null)
+                plainText = Jsoup.parse(m.getContent()).text();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
-            mensajeList.add(new MensajeInforme(m.getFrom(),m.getTo(), m.getSubject(), m.getReceivedDate(), plainText));
+            MensajeInforme mi = new MensajeInforme(m.getFrom(),m.getTo(), m.getSubject(), m.getReceivedDate());
+            mi.setContent(plainText);
+            mensajeList.add(mi);
+
         } catch (MessagingException e) {
             e.printStackTrace();
         } catch (Exception e) {

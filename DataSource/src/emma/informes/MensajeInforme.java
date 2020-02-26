@@ -2,14 +2,13 @@ package emma.informes;
 
 public class MensajeInforme {
 
-    private String from, to, subject, receivedDate, content;
+    private String from, to, subject, receivedDate, content, email, folder;
 
-    public MensajeInforme(String from, String to, String subject, String receivedDate, String content){
+    public MensajeInforme(String from, String to, String subject, String receivedDate){
         this.from = from;
         this.to = to;
         this.subject = subject;
         this.receivedDate = receivedDate;
-        this.content = content;
     }
 
     public String getFrom() {
@@ -51,6 +50,15 @@ public class MensajeInforme {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
+
+    public String getFolder() {return folder;}
+
+    public void setFolder(String folder) {this.folder = folder;}
+
 
 
 }

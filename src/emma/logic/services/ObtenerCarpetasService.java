@@ -12,7 +12,7 @@ public class ObtenerCarpetasService extends Service<EmailTreeItem> {
         return new Task<EmailTreeItem>() {
             @Override
             protected EmailTreeItem call() throws Exception {
-                return Logica.getInstance().cargaCarpetas();
+                return Logica.getInstance().cargarCarpetas();
             }
         };
     }

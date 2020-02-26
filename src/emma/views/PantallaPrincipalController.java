@@ -8,6 +8,7 @@ import emma.logic.services.ObtenerCarpetasService;
 import emma.logic.services.ObtenerCorreosService;
 import emma.models.EmailTreeItem;
 import emma.models.Mensaje;
+import emma.models.MensajeInforme;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -28,9 +29,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import javax.mail.MessagingException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class PantallaPrincipalController extends BaseController implements Initializable {
 
@@ -142,7 +141,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
                 (PantallaRegistroController) cargarDialogo("PantallaRegistro.fxml", 600, 400);
         registro_controller.getStage().setResizable(false);
         registro_controller.abrirDialogo(true);
-        treev_carpetas.setRoot(logica.cargaCarpetas());
+        treev_carpetas.setRoot(logica.cargarCarpetas());
     }
 
     public void borrar_cuenta(ActionEvent actionEvent){
@@ -151,7 +150,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
                 (PantallaConfigController) cargarDialogo("PantallaConfig.fxml", 500, 400);
         config_controller.getStage().setResizable(false);
         config_controller.abrirDialogo(true);
-        treev_carpetas.setRoot(logica.cargaCarpetas());
+        treev_carpetas.setRoot(logica.cargarCarpetas());
 
     }
 
@@ -205,7 +204,6 @@ public class PantallaPrincipalController extends BaseController implements Initi
         if(tv_mensajes.getSelectionModel().getSelectedItem()!=null){ //lanza mensaje
             try {
                 correo_controller.setAsunto("RE: " + tv_mensajes.getSelectionModel().getSelectedItem().getSubject());
-                correo_controller.setTo(tv_mensajes.getSelectionModel().getSelectedItem().getTo());
                 correo_controller.setContent("\n" +
                         "................................................................................................................................................."
                         + tv_mensajes.getSelectionModel().getSelectedItem().getContent());
@@ -276,6 +274,50 @@ public class PantallaPrincipalController extends BaseController implements Initi
             }
 
         }
+    }
+
+    public void imprimir_listaCorreos(ActionEvent actionEvent){
+
+        if (treev_carpetas.getSelectionModel().getSelectedItem()==null)
+        {
+            Alert alert_null = new Alert(Alert.AlertType.WARNING);
+            alert_null.setTitle("ERROR");
+            alert_null.setContentText("No hay carpetas seleccionados");
+            alert_null.showAndWait();
+        }else{
+            String folder = ((EmailTreeItem) treev_carpetas.getSelectionModel().getSelectedItem()).getFolder().toString();
+            String from = null, to = null, subject = null, date = null;
+            List<Mensaje> lista = new ArrayList<Mensaje>();
+            lista = tv_mensajes.getItems();
+            List<MensajeInforme> lista2 = new ArrayList<MensajeInforme>();
+            for(int i = 0; i<lista.size(); i++){
+
+                try {
+                    from = lista.get(i).getFrom();
+                    to = lista.get(i).getTo();
+                    subject = lista.get(i).getSubject();
+                    date = lista.get(i).getReceivedDate();
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+
+                MensajeInforme mi =new MensajeInforme(from, to, subject, date);
+                mi.setFolder(folder);
+
+                lista2.add(mi);
+            }
+            JRBeanCollectionDataSource jr = new JRBeanCollectionDataSource(lista2);
+            Map<String,Object> parametros = new HashMap<>();
+            JasperPrint print = null;
+            try {
+                print = JasperFillManager.fillReport(getClass().getResourceAsStream("/emma/informesjasper/ListaCorreos.jasper"), parametros, jr);
+                JasperExportManager.exportReportToPdfFile(print, "informespdf/informe_lista.pdf");
+            } catch (JRException e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
 }
 

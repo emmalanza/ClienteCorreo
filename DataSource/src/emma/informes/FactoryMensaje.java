@@ -59,7 +59,9 @@ public class FactoryMensaje {
                 "</BODY>\n" +
                 "\n" +
                 "</HTML> ";
-        MensajeInforme mensajeInforme = new MensajeInforme("asdf","asdf","ads","asdf",html);
+        MensajeInforme mensajeInforme = new MensajeInforme("from","to","subject","date");
+        mensajeInforme.setContent(html);
+        mensajeInforme.setFolder("Folder");
         mensajeList.add(mensajeInforme);
         return mensajeList;
 

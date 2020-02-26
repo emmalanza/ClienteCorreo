@@ -187,7 +187,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
         if(tv_mensajes.getSelectionModel().getSelectedItem()!=null) { //lanzar mensaje
             try {
                 correo_controller.setAsunto("RE: " + tv_mensajes.getSelectionModel().getSelectedItem().getSubject());
-                correo_controller.setTo(tv_mensajes.getSelectionModel().getSelectedItem().getTo());
+                correo_controller.setTo(tv_mensajes.getSelectionModel().getSelectedItem().getFrom());
             } catch (MessagingException e) {
                 e.printStackTrace();
             }

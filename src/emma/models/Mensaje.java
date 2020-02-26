@@ -34,7 +34,7 @@ public class Mensaje {
     }
 
     public String getTo() throws MessagingException{
-        Address [] to = m.getReplyTo();
+        Address [] to = m.getRecipients(Message.RecipientType.TO);
         String s_to = to[0].toString();
         return s_to;
     }

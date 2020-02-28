@@ -27,6 +27,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import javax.mail.MessagingException;
+import java.io.File;
 import java.net.URL;
 import java.util.*;
 
@@ -262,12 +263,14 @@ public class PantallaPrincipalController extends BaseController implements Initi
             alert_null.showAndWait();
 
         }else{
+            File file = logica.getFile();
+
             JRBeanCollectionDataSource jr = new JRBeanCollectionDataSource(logica.get_mensaje_informe(m));
             Map<String,Object> parametros = new HashMap<>();
             JasperPrint print = null;
             try {
                 print = JasperFillManager.fillReport(getClass().getResourceAsStream("/emma/informesjasper/InformeCorreo.jasper"), parametros, jr);
-                JasperExportManager.exportReportToPdfFile(print, "informespdf/primerinforme.pdf");
+                JasperExportManager.exportReportToPdfFile(print, file.toPath().toString());
             } catch (JRException e) {
                 e.printStackTrace();
             }
@@ -284,6 +287,9 @@ public class PantallaPrincipalController extends BaseController implements Initi
             alert_null.setContentText("No hay carpetas seleccionados");
             alert_null.showAndWait();
         }else{
+
+            File file = logica.getFile();
+
             String folder = ((EmailTreeItem) treev_carpetas.getSelectionModel().getSelectedItem()).getFolder().toString();
             List<Mensaje> lista = new ArrayList<Mensaje>();
             lista = tv_mensajes.getItems();
@@ -292,7 +298,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
             JasperPrint print = null;
             try {
                 print = JasperFillManager.fillReport(getClass().getResourceAsStream("/emma/informesjasper/ListaCorreos.jasper"), parametros, jr);
-                JasperExportManager.exportReportToPdfFile(print, "informespdf/informe_lista.pdf");
+                JasperExportManager.exportReportToPdfFile(print, file.toPath().toString());
             } catch (JRException e) {
                 e.printStackTrace();
             }

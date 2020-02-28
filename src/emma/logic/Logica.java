@@ -9,11 +9,13 @@ import emma.models.MensajeInforme;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.web.HTMLEditor;
+import javafx.stage.FileChooser;
 import org.jsoup.Jsoup;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -283,22 +285,52 @@ public class Logica {
 
         for(int i = 0; i<folders.length; i++) {
 
-            List<Mensaje> mensajes = obtenerCorreos(folders[i]);
+            try {
+                if(folders[i].list().length>0){
 
-            for(int j = 0; j<mensajes.size(); j++){
-                MensajeInforme mi = null;
-                try {
-                    mi = new MensajeInforme(mensajes.get(j).getFrom(), mensajes.get(j).getTo(), mensajes.get(j).getSubject(), mensajes.get(j).getReceivedDate());
-                } catch (MessagingException e) {
-                    e.printStackTrace();
+                    Folder[] folders_2 = folders[i].list();
+                    for(int j = 0; j<folders_2.length; j++){
+
+                        List<Mensaje> mensajes = obtenerCorreos(folders_2[j]);
+
+                        for(int k = 0; k<mensajes.size(); k++){
+                            MensajeInforme mi = null;
+                            try {
+                                mi = new MensajeInforme(mensajes.get(k).getFrom(), mensajes.get(k).getTo(), mensajes.get(k).getSubject(), mensajes.get(k).getReceivedDate());
+                            } catch (MessagingException e) {
+                                e.printStackTrace();
+                            }
+                            mi.setFolder(folders_2[j].getName());
+                            lista.add(mi);
+                        }
+                    }
+                }else {
+
+                    List<Mensaje> mensajes = obtenerCorreos(folders[i]);
+
+                    for(int j = 0; j<mensajes.size(); j++){
+                        MensajeInforme mi = null;
+                        mi = new MensajeInforme(mensajes.get(j).getFrom(), mensajes.get(j).getTo(), mensajes.get(j).getSubject(), mensajes.get(j).getReceivedDate());
+                        mi.setFolder(folders[i].getName());
+                        lista.add(mi);
+                    }
+
                 }
-                mi.setFolder(folders[i].getName());
-                lista.add(mi);
+            } catch (MessagingException e) {
+                e.printStackTrace();
             }
 
-        }
-        return lista;
+            }
 
+        return lista;
+    }
+
+        public File getFile() {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        return fileChooser.showSaveDialog(null);
     }
 
 }

@@ -13,6 +13,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
+import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +32,8 @@ public class PantallaImprimirController extends BaseController implements Initia
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        label.setText("Seleccione una cuenta para imprimir todos sus correos.");
+
         for(int i = 0; i<logica.getCuentas().size(); i++){
             cb_correos.getItems().add(((Cuenta)logica.getCuentas().get(i)).getEmail());
         }
@@ -41,12 +44,14 @@ public class PantallaImprimirController extends BaseController implements Initia
 
     public void imprimir(ActionEvent actionEvent){
 
+        File file = logica.getFile();
+
         JRBeanCollectionDataSource jr = new JRBeanCollectionDataSource(logica.get_informes_correo(cb_correos.getSelectionModel().getSelectedItem()));
         Map<String,Object> parametros = new HashMap<>();
         JasperPrint print = null;
         try {
             print = JasperFillManager.fillReport(getClass().getResourceAsStream("/emma/informesjasper/TodosLosCorreos.jasper"), parametros, jr);
-            JasperExportManager.exportReportToPdfFile(print, "informespdf/TodosLosCorreos.pdf");
+            JasperExportManager.exportReportToPdfFile(print, file.toPath().toString());
         } catch (JRException e) {
             e.printStackTrace();
         }

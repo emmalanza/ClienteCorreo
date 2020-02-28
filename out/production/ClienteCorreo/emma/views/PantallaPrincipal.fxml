@@ -42,7 +42,7 @@
               <items>
                   <MenuItem mnemonicParsing="false" onAction="#imprimir_email" text="Un correo" />
                   <MenuItem mnemonicParsing="false" onAction="#imprimir_listaCorreos" text="Correos de una carpeta" />
-                <MenuItem mnemonicParsing="false" text="Todos los correos" />
+                  <MenuItem mnemonicParsing="false" onAction="#imprimir_correos_email" text="Todos los correos" />
               </items>
             </Menu>
         </menus>

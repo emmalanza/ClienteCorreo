@@ -240,4 +240,65 @@ public class Logica {
         return mensajeList;
     }
 
+    public List<MensajeInforme> get_informes_carpetas(List<Mensaje> mensajes, String folder){
+        String from = null, to = null, subject = null, date = null;
+        List<MensajeInforme> lista = new ArrayList<MensajeInforme>();
+
+        for(int i = 0; i<mensajes.size(); i++){
+            try {
+                from = mensajes.get(i).getFrom();
+                to = mensajes.get(i).getTo();
+                subject = mensajes.get(i).getSubject();
+                date = mensajes.get(i).getReceivedDate();
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+
+            MensajeInforme mi =new MensajeInforme(from, to, subject, date);
+            mi.setFolder(folder);
+
+            lista.add(mi);
+        }
+        return lista;
+    }
+
+    public List<MensajeInforme> get_informes_correo(String email){
+
+        List<MensajeInforme> lista = new ArrayList<>();
+
+        EmailTreeItem rootItem = new EmailTreeItem("",null,null, null);
+        Folder[] folders = null;
+
+
+
+        for (int i = 0; i < cuentas.size(); i++) {
+            if(cuentas.get(i).getEmail().equals(email)) {
+                try {
+                    folders = cuentas.get(i).getStore().getDefaultFolder().list();
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        for(int i = 0; i<folders.length; i++) {
+
+            List<Mensaje> mensajes = obtenerCorreos(folders[i]);
+
+            for(int j = 0; j<mensajes.size(); j++){
+                MensajeInforme mi = null;
+                try {
+                    mi = new MensajeInforme(mensajes.get(j).getFrom(), mensajes.get(j).getTo(), mensajes.get(j).getSubject(), mensajes.get(j).getReceivedDate());
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+                mi.setFolder(folders[i].getName());
+                lista.add(mi);
+            }
+
+        }
+        return lista;
+
+    }
+
 }

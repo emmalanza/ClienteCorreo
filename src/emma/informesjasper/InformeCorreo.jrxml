@@ -82,7 +82,7 @@
 				<textFieldExpression><![CDATA[$F{subject}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="60" y="50" width="210" height="30" uuid="3601f28f-2efe-42da-8989-07022f6f1ae4">
+				<reportElement x="60" y="50" width="230" height="30" uuid="3601f28f-2efe-42da-8989-07022f6f1ae4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="842661dd-9fb9-4580-bad0-938656d5e70d"/>
 				</reportElement>
 				<textElement>

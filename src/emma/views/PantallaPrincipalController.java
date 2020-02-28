@@ -8,7 +8,6 @@ import emma.logic.services.ObtenerCarpetasService;
 import emma.logic.services.ObtenerCorreosService;
 import emma.models.EmailTreeItem;
 import emma.models.Mensaje;
-import emma.models.MensajeInforme;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -251,7 +250,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
         return reloj;
     }
 
-    public void imprimir_email(ActionEvent actionEvent) {
+    public void imprimir_email(ActionEvent actionEvent) { //imprime el correo seleccionado
 
         Mensaje m = tv_mensajes.getSelectionModel().getSelectedItem();
 
@@ -276,7 +275,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
         }
     }
 
-    public void imprimir_listaCorreos(ActionEvent actionEvent){
+    public void imprimir_listaCorreos(ActionEvent actionEvent){ //imprime la lista de correos de una carpeta seleccionada
 
         if (treev_carpetas.getSelectionModel().getSelectedItem()==null)
         {
@@ -286,27 +285,9 @@ public class PantallaPrincipalController extends BaseController implements Initi
             alert_null.showAndWait();
         }else{
             String folder = ((EmailTreeItem) treev_carpetas.getSelectionModel().getSelectedItem()).getFolder().toString();
-            String from = null, to = null, subject = null, date = null;
             List<Mensaje> lista = new ArrayList<Mensaje>();
             lista = tv_mensajes.getItems();
-            List<MensajeInforme> lista2 = new ArrayList<MensajeInforme>();
-            for(int i = 0; i<lista.size(); i++){
-
-                try {
-                    from = lista.get(i).getFrom();
-                    to = lista.get(i).getTo();
-                    subject = lista.get(i).getSubject();
-                    date = lista.get(i).getReceivedDate();
-                } catch (MessagingException e) {
-                    e.printStackTrace();
-                }
-
-                MensajeInforme mi =new MensajeInforme(from, to, subject, date);
-                mi.setFolder(folder);
-
-                lista2.add(mi);
-            }
-            JRBeanCollectionDataSource jr = new JRBeanCollectionDataSource(lista2);
+            JRBeanCollectionDataSource jr = new JRBeanCollectionDataSource(logica.get_informes_carpetas(lista, folder));
             Map<String,Object> parametros = new HashMap<>();
             JasperPrint print = null;
             try {
@@ -317,6 +298,15 @@ public class PantallaPrincipalController extends BaseController implements Initi
             }
 
         }
+
+    }
+
+    public void imprimir_correos_email(ActionEvent actionEvent){ //imprime todos los correos de una cuenta
+
+        PantallaImprimirController imprimir_controller =
+                (PantallaImprimirController) cargarDialogo("PantallaImprimir.fxml", 400, 200);
+        imprimir_controller.getStage().setResizable(false);
+        imprimir_controller.abrirDialogo(true);
 
     }
 }

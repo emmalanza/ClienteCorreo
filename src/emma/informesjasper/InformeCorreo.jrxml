@@ -26,7 +26,7 @@
 	<title>
 		<band height="114" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="20" width="545" height="50" forecolor="#000000" backcolor="#FFFFFF" uuid="679e3a75-e6b5-4e12-bf5f-c4aef231256c"/>
+				<reportElement x="10" y="20" width="535" height="50" forecolor="#000000" backcolor="#FFFFFF" uuid="679e3a75-e6b5-4e12-bf5f-c4aef231256c"/>
 				<textElement textAlignment="Left">
 					<font fontName="Arial" size="25" isBold="true"/>
 				</textElement>
@@ -37,7 +37,7 @@
 	<columnHeader>
 		<band height="120" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="80" height="30" uuid="b7c69da0-097d-4143-b45a-f4e0e4f19ba9">
+				<reportElement x="10" y="0" width="60" height="30" uuid="b7c69da0-097d-4143-b45a-f4e0e4f19ba9">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8ad2edf-b140-4d69-b2e4-ec0804dd6231"/>
 				</reportElement>
 				<textElement>
@@ -46,7 +46,7 @@
 				<text><![CDATA[Asunto:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="50" width="60" height="30" uuid="fd8abcb4-ecdc-4bff-92fd-3587198712aa">
+				<reportElement x="10" y="50" width="30" height="30" uuid="fd8abcb4-ecdc-4bff-92fd-3587198712aa">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="842661dd-9fb9-4580-bad0-938656d5e70d"/>
 				</reportElement>
 				<textElement>
@@ -55,7 +55,7 @@
 				<text><![CDATA[De:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="300" y="50" width="70" height="30" uuid="6a8a7962-65fb-4298-9af0-d093b5853021">
+				<reportElement x="310" y="50" width="40" height="30" uuid="6a8a7962-65fb-4298-9af0-d093b5853021">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27dcbcbf-4915-4839-887d-27722ff3c67f"/>
 				</reportElement>
 				<textElement>
@@ -64,7 +64,7 @@
 				<text><![CDATA[Para:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="300" y="0" width="70" height="30" uuid="8e25d78f-854f-41f4-a05e-210dbaa90804">
+				<reportElement x="310" y="0" width="40" height="30" uuid="8e25d78f-854f-41f4-a05e-210dbaa90804">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5e9f1d9-99fd-44a9-89a0-a3fc1f502ba2"/>
 				</reportElement>
 				<textElement>
@@ -73,7 +73,7 @@
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="80" y="0" width="210" height="30" uuid="44927a08-dbd6-4441-8d57-cc124909654c">
+				<reportElement x="70" y="0" width="230" height="30" uuid="44927a08-dbd6-4441-8d57-cc124909654c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8ad2edf-b140-4d69-b2e4-ec0804dd6231"/>
 				</reportElement>
 				<textElement>
@@ -82,7 +82,7 @@
 				<textFieldExpression><![CDATA[$F{subject}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="60" y="50" width="230" height="30" uuid="3601f28f-2efe-42da-8989-07022f6f1ae4">
+				<reportElement x="40" y="50" width="260" height="30" uuid="3601f28f-2efe-42da-8989-07022f6f1ae4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="842661dd-9fb9-4580-bad0-938656d5e70d"/>
 				</reportElement>
 				<textElement>
@@ -91,7 +91,7 @@
 				<textFieldExpression><![CDATA[$F{from}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="370" y="50" width="185" height="30" uuid="656e3c51-7177-49e6-9878-27bd6e445c3a">
+				<reportElement x="350" y="50" width="195" height="30" uuid="656e3c51-7177-49e6-9878-27bd6e445c3a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27dcbcbf-4915-4839-887d-27722ff3c67f"/>
 				</reportElement>
 				<textElement>
@@ -100,7 +100,7 @@
 				<textFieldExpression><![CDATA[$F{to}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="370" y="0" width="185" height="30" uuid="dd173a78-06cb-4333-8e33-0d24b3c3fb53">
+				<reportElement x="350" y="0" width="195" height="30" uuid="dd173a78-06cb-4333-8e33-0d24b3c3fb53">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5e9f1d9-99fd-44a9-89a0-a3fc1f502ba2"/>
 				</reportElement>
 				<textElement>

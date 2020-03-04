@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class PantallaImprimirController extends BaseController implements Initializable{
+public class PantallaExportarController extends BaseController implements Initializable{
 
     @FXML
     private Label label;
@@ -42,7 +42,7 @@ public class PantallaImprimirController extends BaseController implements Initia
 
     }
 
-    public void imprimir(ActionEvent actionEvent){
+    public void exportar(ActionEvent actionEvent){
 
         File file = logica.getFile();
 

@@ -251,7 +251,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
         return reloj;
     }
 
-    public void imprimir_email(ActionEvent actionEvent) { //imprime el correo seleccionado
+    public void exportar_email(ActionEvent actionEvent) { //exporta el correo seleccionado
 
         Mensaje m = tv_mensajes.getSelectionModel().getSelectedItem();
 
@@ -271,6 +271,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
             try {
                 print = JasperFillManager.fillReport(getClass().getResourceAsStream("/emma/informesjasper/InformeCorreo.jasper"), parametros, jr);
                 JasperExportManager.exportReportToPdfFile(print, file.toPath().toString());
+
             } catch (JRException e) {
                 e.printStackTrace();
             }
@@ -278,7 +279,7 @@ public class PantallaPrincipalController extends BaseController implements Initi
         }
     }
 
-    public void imprimir_listaCorreos(ActionEvent actionEvent){ //imprime la lista de correos de una carpeta seleccionada
+    public void exportar_listaCorreos(ActionEvent actionEvent){ //imprime la lista de correos de una carpeta seleccionada
 
         if (treev_carpetas.getSelectionModel().getSelectedItem()==null)
         {
@@ -307,10 +308,10 @@ public class PantallaPrincipalController extends BaseController implements Initi
 
     }
 
-    public void imprimir_correos_email(ActionEvent actionEvent){ //imprime todos los correos de una cuenta
+    public void exportar_correos_email(ActionEvent actionEvent){ //exporta todos los correos de una cuenta
 
-        PantallaImprimirController imprimir_controller =
-                (PantallaImprimirController) cargarDialogo("PantallaImprimir.fxml", 400, 200);
+        PantallaExportarController imprimir_controller =
+                (PantallaExportarController) cargarDialogo("PantallaExportar.fxml", 400, 200);
         imprimir_controller.getStage().setResizable(false);
         imprimir_controller.abrirDialogo(true);
 

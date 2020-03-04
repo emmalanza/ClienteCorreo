@@ -33,7 +33,7 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="20" width="545" height="40" uuid="69b3ce81-a982-41af-9e16-abd1f30c7b0c"/>
+				<reportElement x="10" y="20" width="535" height="40" uuid="69b3ce81-a982-41af-9e16-abd1f30c7b0c"/>
 				<textElement>
 					<font fontName="Arial" size="25"/>
 				</textElement>
@@ -44,14 +44,14 @@
 	<columnHeader>
 		<band height="68" splitType="Stretch">
 			<textField>
-				<reportElement x="70" y="19" width="130" height="30" uuid="63ce0c99-bf71-4bbb-9ff2-fcd2f69d0585"/>
+				<reportElement x="80" y="19" width="130" height="30" uuid="63ce0c99-bf71-4bbb-9ff2-fcd2f69d0585"/>
 				<textElement>
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{folder}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="19" width="70" height="30" uuid="141da3b0-c4c5-42fe-9a81-59813ab1bcd1"/>
+				<reportElement x="10" y="19" width="70" height="30" uuid="141da3b0-c4c5-42fe-9a81-59813ab1bcd1"/>
 				<textElement>
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
@@ -62,7 +62,7 @@
 	<detail>
 		<band height="139" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="30" width="280" height="30" uuid="f74cff58-d33b-4338-bf1e-6330d90f8ac9">
+				<reportElement x="10" y="30" width="280" height="30" uuid="f74cff58-d33b-4338-bf1e-6330d90f8ac9">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f4babd1-b5e9-4ce6-96c8-eacd67be188d"/>
 				</reportElement>
 				<textElement>
@@ -71,7 +71,7 @@
 				<textFieldExpression><![CDATA[$F{subject}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="1" y="100" width="279" height="30" uuid="fe4ea9b4-8fde-46a8-a382-097382321b5b">
+				<reportElement x="11" y="100" width="279" height="30" uuid="fe4ea9b4-8fde-46a8-a382-097382321b5b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e2bd7434-137e-4c5a-9496-c221b3d3cc29"/>
 				</reportElement>
 				<textElement>
@@ -98,20 +98,20 @@
 				<textFieldExpression><![CDATA[$F{receivedDate}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="0" width="200" height="30" uuid="f025cacc-e2eb-405c-b298-15771c48a463">
+				<reportElement x="10" y="0" width="200" height="30" uuid="f025cacc-e2eb-405c-b298-15771c48a463">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f4babd1-b5e9-4ce6-96c8-eacd67be188d"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Asunto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="70" width="120" height="30" uuid="3edde8bb-a19c-492f-97b7-8794be20c990">
+				<reportElement x="10" y="70" width="120" height="30" uuid="3edde8bb-a19c-492f-97b7-8794be20c990">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e2bd7434-137e-4c5a-9496-c221b3d3cc29"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[De]]></text>
 			</staticText>
@@ -120,7 +120,7 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9ebd8ddf-e55c-4db7-84fb-31715eaa98f4"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Para]]></text>
 			</staticText>
@@ -129,7 +129,7 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d246e49c-e36c-49e2-88c0-95ee68fbbc68"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha]]></text>
 			</staticText>

@@ -26,19 +26,22 @@
 	<field name="email" class="java.lang.String">
 		<fieldDescription><![CDATA[email]]></fieldDescription>
 	</field>
-	<group name="Group1">
+	<variable name="subject1" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Count">
+		<variableExpression><![CDATA[$F{subject}]]></variableExpression>
+	</variable>
+	<group name="Group1" isStartNewPage="true" keepTogether="true">
 		<groupExpression><![CDATA[$F{folder}]]></groupExpression>
 		<groupHeader>
 			<band height="52">
 				<textField>
-					<reportElement x="90" y="20" width="190" height="30" uuid="f9278835-365f-411a-8aa7-e96a14682b89"/>
+					<reportElement x="60" y="22" width="190" height="30" uuid="f9278835-365f-411a-8aa7-e96a14682b89"/>
 					<textElement>
 						<font size="12" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{folder}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="0" y="20" width="90" height="30" uuid="34377eaa-219e-45cf-b4ae-c27985723ba5"/>
+					<reportElement x="10" y="22" width="50" height="30" uuid="34377eaa-219e-45cf-b4ae-c27985723ba5"/>
 					<textElement>
 						<font size="12" isBold="true"/>
 					</textElement>
@@ -47,7 +50,23 @@
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="50"/>
+			<band height="81">
+				<textField>
+					<reportElement x="490" y="40" width="60" height="30" uuid="f7462f00-da65-4680-85ed-d71db372e1b4"/>
+					<textFieldExpression><![CDATA[$V{subject1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="370" y="10" width="100" height="30" uuid="bcdee1a7-353a-4b2e-9939-37af651b9f3e"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total de correos de:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="470" y="10" width="80" height="30" uuid="b2b4e253-bbae-4d93-ba07-82cc449faf59"/>
+					<textFieldExpression><![CDATA[$F{folder}]]></textFieldExpression>
+				</textField>
+			</band>
 		</groupFooter>
 	</group>
 	<background>
@@ -56,7 +75,7 @@
 	<title>
 		<band height="90" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="30" width="390" height="30" uuid="b4384647-7ede-4379-ba5a-a0a4fc8160f2"/>
+				<reportElement x="10" y="30" width="390" height="30" uuid="b4384647-7ede-4379-ba5a-a0a4fc8160f2"/>
 				<textElement>
 					<font size="19" isBold="true"/>
 				</textElement>
@@ -67,11 +86,11 @@
 	<detail>
 		<band height="145" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="40" width="280" height="30" uuid="f5673559-431b-4e79-9cb5-c1d27558eecb"/>
+				<reportElement x="10" y="40" width="280" height="30" uuid="f5673559-431b-4e79-9cb5-c1d27558eecb"/>
 				<textFieldExpression><![CDATA[$F{subject}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="110" width="279" height="30" uuid="9d1123f0-9d41-499c-9bc1-7baaa670fd74"/>
+				<reportElement x="10" y="110" width="279" height="30" uuid="9d1123f0-9d41-499c-9bc1-7baaa670fd74"/>
 				<textFieldExpression><![CDATA[$F{from}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -83,7 +102,7 @@
 				<textFieldExpression><![CDATA[$F{receivedDate}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="10" width="200" height="30" uuid="e82f687b-8dfe-48cf-a58e-7d5270b3ff11"/>
+				<reportElement x="10" y="10" width="200" height="30" uuid="e82f687b-8dfe-48cf-a58e-7d5270b3ff11"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -97,7 +116,7 @@
 				<text><![CDATA[Fecha]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="80" width="100" height="30" uuid="25ea3780-635c-4cd4-acfb-970207114332"/>
+				<reportElement x="10" y="80" width="100" height="30" uuid="25ea3780-635c-4cd4-acfb-970207114332"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>

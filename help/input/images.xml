@@ -1,0 +1,5 @@
+<images>
+    <image id="correo" url="correo-electronico.jpg" />
+    <image id="recordatorios" url="recordatorios.jpg" />
+    <image id="pdf" url="pdf.jpg" />
+</images>

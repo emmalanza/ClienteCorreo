@@ -1,11 +1,12 @@
 package emma.views;
 
+import com.emma.Reloj;
 import com.emma.Tarea;
 import emma.logic.Logica;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -36,12 +37,6 @@ public class PantallaTareasController extends BaseController implements Initiali
     @FXML
     private DatePicker dp_fecha;
 
-    @FXML
-    private Button bt_anadir;
-
-    @FXML
-    private Button bt_eliminar;
-
     private Logica logica = Logica.getInstance();
 
     @Override
@@ -50,6 +45,7 @@ public class PantallaTareasController extends BaseController implements Initiali
         tv_tareas.setItems(logica.getTareas());
 
     }
+
 
     public void aniadir_tarea(ActionEvent actionEvent) {
 
@@ -75,6 +71,6 @@ public class PantallaTareasController extends BaseController implements Initiali
 
         logica.eliminar_tareas(tv_tareas.getSelectionModel().getSelectedItem());
         tv_tareas.setItems(logica.getTareas());
-
     }
+
 }

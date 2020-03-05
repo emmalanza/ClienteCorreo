@@ -53,7 +53,6 @@ public class PantallaPrincipalController extends BaseController implements Initi
     private WebEngine webEn;
     private Logica logica = Logica.getInstance();
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -242,11 +241,15 @@ public class PantallaPrincipalController extends BaseController implements Initi
                 (PantallaTareasController) cargarDialogo("PantallaTareas.fxml", 600,400);
         tareas_controller.getStage().setResizable(false);
         tareas_controller.abrirDialogo(true);
-        //to do aaaahhhh!!!!!
-    }
 
-    public Reloj getReloj() {
-        return reloj;
+        ArrayList<Tarea> tareas = new ArrayList<>();
+
+        for (int i = 0; i<logica.getTareas().size(); i++){
+            tareas.add(logica.getTareas().get(i));
+        }
+
+        reloj.sincronizar_lista(tareas);
+
     }
 
     public void exportar_email(ActionEvent actionEvent) { //exporta el correo seleccionado

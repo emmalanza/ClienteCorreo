@@ -25,6 +25,8 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import org.docgene.help.JavaHelpFactory;
+import org.docgene.help.gui.jfx.JFXHelpContentViewer;
 
 import javax.mail.MessagingException;
 import java.io.File;
@@ -315,6 +317,20 @@ public class PantallaPrincipalController extends BaseController implements Initi
         imprimir_controller.getStage().setResizable(false);
         imprimir_controller.abrirDialogo(true);
 
+    }
+
+    public void ayuda(ActionEvent actionEvent){
+        try {
+            URL url = new File("help/articles.zip").toURI().toURL();
+            JavaHelpFactory factory = new JavaHelpFactory(url);
+            factory.create();
+            JFXHelpContentViewer viewer = new JFXHelpContentViewer();
+            factory.install(viewer);
+            viewer.getHelpWindow(getStage(), "Ayuda Correo", 900, 600);
+            viewer.showHelpDialog(350, 50);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 }
 

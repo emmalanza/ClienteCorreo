@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <article desc="funcionamiento del correo">
 
-    <img id="correo" />
+    <img id="correo"  width="250" height="150"/>
 
-    Para arrancar el cliente de correo tendrá que iniciar sesión con un usuario y una contraseña de GMAIL, el cliente mostrará
+    Para arrancar el cliente de correo se tendrá que iniciar sesión con un usuario y una contraseña de GMAIL, el cliente mostrará
     todas las carpetas a la izquierda y todos los correos a la derecha.
-    Los correo no leídos se mostrarán en negrita.
+    Los correos no leídos se mostrarán en negrita.
     Este cliente de correo le dará opción al usuario a redactar, responder, reenviar y borrar correos.
 
     También dispondrá de un menú arriba a la izquierda que le brindará las siguientes opciones:
 
     1) Al desplegar el menú "Añadir cuentas..." podrá añadir y eliminar cuentas de email. Se podrán añadir todas las cuentas que se deseen.<br/>
     2) Se podrá cambiar el tema de la aplicación a gusto del usuario.<br/>
-    3) Dispondrá de unu sistema de recordatorios. <ref id="Recordatorios en el cliente" /><br/>
+    3) Dispondrá de un sistema de recordatorios. <ref id="Recordatorios en el cliente" /><br/>
     4) También permitirá al usuario exportar correos en formato PDF. <ref id="Convierta sus correos a PDF" /><br/>
 
     <cat id="funcionamiento del correo"/>

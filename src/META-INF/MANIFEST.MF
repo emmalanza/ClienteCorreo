@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Main-Class: emma.Launcher
+Class-Path: jsoup-1.12.1.jar jasperreports-6.11.0.jar commons-beanutils-
+ 1.9.4.jar commons-collections-3.2.2.jar commons-digester-2.1.jar common
+ s-logging-1.1.1.jar commons-collections4-4.2.jar itext-2.1.7.js7.jar bc
+ prov-jdk15on-1.62.jar jcommon-1.0.23.jar jfreechart-1.0.19.jar ecj-4.4.
+ 2.jar castor-xml-1.4.1.jar castor-core-1.4.1.jar commons-lang3-3.4.jar 
+ javax.inject-1.jar jackson-core-2.10.0.jar jackson-databind-2.10.0.jar 
+ jackson-annotations-2.10.0.jar controlsfx-11.0.0.jar javax.mail.jar ela
+ sticlunr.jar json.jar elasticlunr.jar javafx.web.jar javafx.swing.jar j
+ avafx.media.jar javafx.graphics.jar javafx.fxml.jar javafx.controls.jar
+  javafx.base.jar javafx-swt.jar controlsfx-11.0.0.jar activation.jar do
+ cGeneJFXHelp.jar Reloj.jar testfx-junit-4.0.15-alpha.jar testfx-core-4.
+ 0.15-alpha.jar hamcrest-core-1.3.jar assertj-core-3.11.1.jar junit-4.12
+ .jar docGenerator.jar commons-email-1.5.jar
+

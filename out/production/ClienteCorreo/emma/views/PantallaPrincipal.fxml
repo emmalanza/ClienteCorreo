@@ -45,6 +45,11 @@
                   <MenuItem mnemonicParsing="false" onAction="#exportar_correos_email" text="Todos los correos" />
               </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Acerca de...">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#ayuda" text="ClienteCorreo" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
       <SplitPane dividerPositions="0.2702702702702703" layoutY="31.0" prefHeight="669.0" prefWidth="700.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">

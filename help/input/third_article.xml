@@ -1,12 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
 <article desc="Convierta sus correos a PDF">
 
-    <img id="pdf" />
+    <img id="pdf" width="150" height="150"/>
 
-    La opciÃ³n de exportar le permitirÃ¡:
+    La opción de exportar le permitirá:
 
-        1) Exportar un correo electrÃ³nico a PDF.<br/>
-        2) Exportar la lista de correos electrÃ³nicos de una carpeta a PDF. De cada correo se mostrarÃ¡n los remitentes, el asunto y la fecha.<br/>
-        3) Exportar todos los correos de una direcciÃ³n de correo a un PDF agrupados por carpeta. Para cada carpeta mostrarÃ¡s el nÃºmero total de correos.<br/>
+        1) Exportar un correo electrónico a PDF.<br/>
+        2) Exportar la lista de correos electrónicos de una carpeta a PDF. De cada correo se mostrarán los remitentes, el asunto y la fecha.<br/>
+        3) Exportar todos los correos de una dirección de correo a un PDF agrupados por carpeta. Para cada carpeta se mostrará el número total de correos.<br/>
 
     <cat id="Convierta sus correos a PDF"/>
 

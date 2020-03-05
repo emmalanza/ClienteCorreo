@@ -70,7 +70,7 @@
 				<textElement>
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Fecha:]]></text>
+				<text><![CDATA[Fecha: ]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="70" y="0" width="230" height="30" uuid="44927a08-dbd6-4441-8d57-cc124909654c">
@@ -113,7 +113,7 @@
 	<detail>
 		<band height="258" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="555" height="258" uuid="95e2abf2-d0f0-4ef9-996f-bac07d1af885">
+				<reportElement x="10" y="0" width="535" height="258" uuid="95e2abf2-d0f0-4ef9-996f-bac07d1af885">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6885eef7-543c-411d-bf31-f45885d8fbde"/>
 				</reportElement>
 				<textElement>

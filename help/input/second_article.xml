@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
 <article desc="Recordatorios en el cliente">
 
-    <img id="recordatorios" />
+    <img id="recordatorios"  width="150" height="150"/>
 
-    El sistema de recordatorios le permitirÃ¡ aÃ±adir y borrar tareas.
-    CuÃ¡ndo se aÃ±ade una tarea se programarÃ¡ un sistema de alertas que avisarÃ¡ al usuario con la tarea, la fecha y la hora indicadas.
+    El sistema de recordatorios le permitirá añadir y borrar tareas.
+    Cuándo se añade una tarea se programará un sistema de alertas que avisará al usuario en la fecha y la hora indicadas.
 
-    Si una tarea se elimina no se mostrarÃ¡ ninguna alerta.
+    Si una tarea se elimina no se mostrará ninguna alerta.
 
     <cat id="Recordatorios en el cliente"/>
 

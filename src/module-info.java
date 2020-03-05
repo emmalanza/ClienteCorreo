@@ -12,11 +12,13 @@ module ClienteCorreo {
     requires jasperreports;
     requires java.sql;
     requires org.jsoup;
+    requires org.docgene.help.jfx;
 
     exports emma.logic;
     exports emma.models;
     exports emma.views;
     exports emma;
+
 
     opens emma.views to javafx.fxml;
 

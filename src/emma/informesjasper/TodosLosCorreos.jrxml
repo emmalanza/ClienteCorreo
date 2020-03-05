@@ -29,32 +29,62 @@
 	<variable name="subject1" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Count">
 		<variableExpression><![CDATA[$F{subject}]]></variableExpression>
 	</variable>
+	<variable name="content1" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Count">
+		<variableExpression><![CDATA[$F{content}]]></variableExpression>
+	</variable>
+	<variable name="from1" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Count">
+		<variableExpression><![CDATA[$F{from}]]></variableExpression>
+	</variable>
 	<group name="Group1" isStartNewPage="true" keepTogether="true">
 		<groupExpression><![CDATA[$F{folder}]]></groupExpression>
 		<groupHeader>
-			<band height="52">
+			<band height="101">
 				<textField>
-					<reportElement x="60" y="22" width="190" height="30" uuid="f9278835-365f-411a-8aa7-e96a14682b89"/>
+					<reportElement x="60" y="0" width="190" height="30" uuid="f9278835-365f-411a-8aa7-e96a14682b89"/>
 					<textElement>
 						<font size="12" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{folder}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="10" y="22" width="50" height="30" uuid="34377eaa-219e-45cf-b4ae-c27985723ba5"/>
+					<reportElement x="10" y="0" width="50" height="30" uuid="34377eaa-219e-45cf-b4ae-c27985723ba5"/>
 					<textElement>
 						<font size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Carpeta:]]></text>
 				</staticText>
+				<staticText>
+					<reportElement x="10" y="71" width="50" height="30" uuid="e82f687b-8dfe-48cf-a58e-7d5270b3ff11"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Asunto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="160" y="70" width="40" height="30" uuid="25ea3780-635c-4cd4-acfb-970207114332"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[De]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="320" y="70" width="40" height="30" uuid="3174137e-795f-4490-a753-335d6c197775"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Para]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="470" y="71" width="80" height="30" uuid="00aacb3e-042d-4bb9-90e9-aaa6d4b1bb16"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha]]></text>
+				</staticText>
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="81">
-				<textField>
-					<reportElement x="490" y="40" width="60" height="30" uuid="f7462f00-da65-4680-85ed-d71db372e1b4"/>
-					<textFieldExpression><![CDATA[$V{subject1}]]></textFieldExpression>
-				</textField>
+			<band height="84">
 				<staticText>
 					<reportElement x="370" y="10" width="100" height="30" uuid="bcdee1a7-353a-4b2e-9939-37af651b9f3e"/>
 					<textElement>
@@ -65,6 +95,10 @@
 				<textField>
 					<reportElement x="470" y="10" width="80" height="30" uuid="b2b4e253-bbae-4d93-ba07-82cc449faf59"/>
 					<textFieldExpression><![CDATA[$F{folder}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="473" y="40" width="77" height="30" uuid="2a612959-9d67-40a1-8bcb-e17e741d8ea6"/>
+					<textFieldExpression><![CDATA[$V{from1}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupFooter>
@@ -84,51 +118,23 @@
 		</band>
 	</title>
 	<detail>
-		<band height="145" splitType="Stretch">
+		<band height="46" splitType="Stretch">
 			<textField>
-				<reportElement x="10" y="40" width="280" height="30" uuid="f5673559-431b-4e79-9cb5-c1d27558eecb"/>
+				<reportElement x="10" y="0" width="140" height="30" uuid="f5673559-431b-4e79-9cb5-c1d27558eecb"/>
 				<textFieldExpression><![CDATA[$F{subject}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="10" y="110" width="279" height="30" uuid="9d1123f0-9d41-499c-9bc1-7baaa670fd74"/>
+				<reportElement x="160" y="0" width="130" height="30" uuid="9d1123f0-9d41-499c-9bc1-7baaa670fd74"/>
 				<textFieldExpression><![CDATA[$F{from}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="320" y="110" width="224" height="30" uuid="619ee80c-65a3-4e17-b508-99a7267ccc2e"/>
+				<reportElement x="320" y="0" width="140" height="30" uuid="619ee80c-65a3-4e17-b508-99a7267ccc2e"/>
 				<textFieldExpression><![CDATA[$F{to}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="320" y="40" width="224" height="30" uuid="02d28740-1953-4d04-9af6-ab5ec439771e"/>
+				<reportElement x="468" y="0" width="84" height="30" uuid="02d28740-1953-4d04-9af6-ab5ec439771e"/>
 				<textFieldExpression><![CDATA[$F{receivedDate}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="10" y="10" width="200" height="30" uuid="e82f687b-8dfe-48cf-a58e-7d5270b3ff11"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Asunto]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="320" y="10" width="100" height="30" uuid="00aacb3e-042d-4bb9-90e9-aaa6d4b1bb16"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Fecha]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="10" y="80" width="100" height="30" uuid="25ea3780-635c-4cd4-acfb-970207114332"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[De]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="320" y="80" width="100" height="30" uuid="3174137e-795f-4490-a753-335d6c197775"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Para]]></text>
-			</staticText>
 		</band>
 	</detail>
 </jasperReport>

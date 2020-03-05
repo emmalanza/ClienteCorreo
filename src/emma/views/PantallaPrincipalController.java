@@ -242,14 +242,10 @@ public class PantallaPrincipalController extends BaseController implements Initi
                 (PantallaTareasController) cargarDialogo("PantallaTareas.fxml", 600,400);
         tareas_controller.getStage().setResizable(false);
         tareas_controller.abrirDialogo(true);
-
-        for(int i = 0; i<logica.getTareas().size(); i++){
-            reloj.registraTarea(logica.getTareas().get(i));
-        }
-
+        //to do aaaahhhh!!!!!
     }
 
-    public Reloj getReloj(){
+    public Reloj getReloj() {
         return reloj;
     }
 

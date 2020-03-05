@@ -6,6 +6,7 @@ import emma.models.Cuenta;
 import emma.models.EmailTreeItem;
 import emma.models.Mensaje;
 import emma.models.MensajeInforme;
+import emma.views.PantallaPrincipalController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.web.HTMLEditor;

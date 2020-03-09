@@ -50,6 +50,7 @@ public class PantallaTareasController extends BaseController implements Initiali
     public void aniadir_tarea(ActionEvent actionEvent) {
 
         int h,m,s; Date fecha; LocalDate localDate;
+        dp_fecha.setValue(LocalDate.now());
         h = Integer.parseInt(tf_h.getText());
         m = Integer.parseInt(tf_m.getText());
         s = Integer.parseInt(tf_s.getText());

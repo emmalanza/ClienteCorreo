@@ -136,6 +136,10 @@ public class PantallaPrincipalController extends BaseController implements Initi
 
     }
 
+    public void stopReloj(){
+        reloj.finalizar();
+    }
+
     public void nueva_cuenta (ActionEvent actionEvent){
 
         PantallaRegistroController registro_controller =

@@ -311,6 +311,11 @@ public class PantallaPrincipalController extends BaseController implements Initi
 
         }
 
+        Alert alert_null = new Alert(Alert.AlertType.INFORMATION);
+        alert_null.setTitle("Éxito");
+        alert_null.setContentText("Informe creado ;)");
+        alert_null.showAndWait();
+
     }
 
     public void exportar_correos_email(ActionEvent actionEvent){ //exporta todos los correos de una cuenta
@@ -320,6 +325,10 @@ public class PantallaPrincipalController extends BaseController implements Initi
         imprimir_controller.getStage().setResizable(false);
         imprimir_controller.abrirDialogo(true);
 
+        Alert alert_null = new Alert(Alert.AlertType.INFORMATION);
+        alert_null.setTitle("Éxito");
+        alert_null.setContentText("Informe creado ;)");
+        alert_null.showAndWait();
     }
 
     public void ayuda(ActionEvent actionEvent){

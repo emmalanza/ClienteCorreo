@@ -5,6 +5,7 @@ import emma.models.Cuenta;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import net.sf.jasperreports.engine.JRException;
@@ -55,6 +56,11 @@ public class PantallaExportarController extends BaseController implements Initia
         } catch (JRException e) {
             e.printStackTrace();
         }
+
+        Alert alert_null = new Alert(Alert.AlertType.INFORMATION);
+        alert_null.setTitle("Éxito");
+        alert_null.setContentText("Informe creado ;)");
+        alert_null.showAndWait();
 
     }
 }
